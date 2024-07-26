@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('quotes', JSON.stringify(quotes));
     }
 
-    function populateCategoryFilter() {
+    function populateCategories() {
         const categories = [...new Set(quotes.map(quote => quote.category))];
         categoryFilter.innerHTML = '<option value="all">All Categories</option>';
         categories.forEach(category => {
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newQuote = { id: Date.now(), text, category };
         quotes.push(newQuote);
         saveQuotes();
-        populateCategoryFilter();
+        populateCategories();
         syncWithServer(newQuote, 'POST');
         newQuoteText.value = '';
         newQuoteCategory.value = '';
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (newQuotes.length > 0) {
                 quotes.push(...newQuotes);
                 saveQuotes();
-                populateCategoryFilter();
+                populateCategories();
                 showNotification('New quotes have been fetched from the server.');
             }
         } catch (error) {
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     importFileInput.addEventListener('change', importFromJsonFile);
 
     // Initial setup
-    populateCategoryFilter();
+    populateCategories();
     setInterval(fetchFromServer, 60000); // Check for new quotes every minute
 
     // Load the last viewed quote from session storage
