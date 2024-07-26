@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showRandomQuote();
     }
 
-    function addQuote() {
+    function createAddQuoteForm() {
         const text = newQuoteText.value.trim();
         const category = newQuoteCategory.value.trim();
 
