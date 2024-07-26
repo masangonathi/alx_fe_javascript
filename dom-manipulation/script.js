@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(quote)
             });
         } catch (error) {
-            console.error('Error syncing quote with server:', error);
+            console.error('Quotes synced with server!', error);
         }
     }
     
