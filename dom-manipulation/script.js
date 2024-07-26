@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    async function syncWithServer(quote, method) {
+    async function syncQuotes(quote, method) {
         try {
             await fetch(serverUrl, {
                 method: method,
