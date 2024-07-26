@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fileReader.readAsText(event.target.files[0]);
     }
 
-    async function fetchFromServer() {
+    async function fetchQuotesFromServer() {
         try {
             const response = await fetch(serverUrl);
             const serverQuotes = await response.json();
